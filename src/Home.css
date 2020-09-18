@@ -1,5 +1,19 @@
 
 
 .container{
-  height: 1000px;
+  /* min-height: 1000px; */
+}
+nav{
+  /* background-color: #fc85bc; */
+}
+footer{
+  /* height: 200px; */
+  /* background-image: url('https://www.floradoor.com/wp-content/themes/flora/images/footerbg.jpg'); */
+  /* background-color: #fc85bc; */
+}
+.prise{
+  margin: auto;
+}
+#n{
+  width: 70px;
 }

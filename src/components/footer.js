@@ -8,9 +8,9 @@ class Footer extends Component {
     }
     render() { 
         return ( 
-            <div class='footer bg-light text-center'>
+            <footer class='footer text-center'>
                 <h3>Fooret</h3>
-            </div>
+            </footer>
          );
     } 
 }

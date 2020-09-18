@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import {Redirect} from 'react-router-dom'
-
 
 class Login extends Component {
     constructor(props) {
@@ -29,10 +27,10 @@ class Login extends Component {
 
         if( this.state.username === localStorage.getItem('username') &&
             this.state.mail === localStorage.getItem('mail'))
-        {
+        { // success
             localStorage.setItem('logged', 'yes')
             this.props.update()
-        }else{
+        }else{ // fails
             this.setState({
                 massage: <div className='alert alert-danger'>
                             invalide username or mail (-_-)

@@ -43,31 +43,31 @@ class Home extends Component {
   render() { 
      
     return ( 
-        <frameElement>
+        <div>
             <BrowserRouter>
                 <Header />
-                
-                    <div className='container d-flex justify-content-center'>
+                <div className='container-fluid'>
+                    
+                    <Route exact path='/login' component={()=>{
+                        return localStorage.getItem('logged')==='yes' ? <Redirect to='/'/> : <Login update={this.update} />
+                        }} /> 
 
-                        <Route exact path='/login' component={()=>{
-                            return localStorage.getItem('logged')==='yes' ? <Redirect to='/'/> : <Login update={this.update} />
-                            }} /> 
+                    <Route exact path='/register' component={Register} /> 
 
-                        <Route exact path='/register' component={Register} /> 
+                    <Route exact path='/mycart' component={()=> {
+                        return localStorage.getItem('logged')==='yes' ? <Cart/> : <Redirect to='/login'/>
+                    } } /> 
 
-                        <Route exact path='/mycart' component={()=> {
-                            return localStorage.getItem('logged')==='yes' ? <Cart/> : <Redirect to='/login'/>
-                        } } /> 
+                    <Route exact path='/' component={Gellary} /> 
+                    <Route exact path='/product/:id' component={Product} /> 
 
-                        <Route exact path='/' component={Gellary} /> 
-                        <Route exact path='/product/:id' component={Product} /> 
-
-                        <Route exact path='/about-us' component={About} /> 
-                        <Route exact path='/contact-us' component={ContactUs} /> 
-                    </div>
+                    <Route exact path='/about-us' component={About} /> 
+                    <Route exact path='/contact-us' component={ContactUs} />
+                     
+                </div>
                 <Footer />
             </BrowserRouter>
-        </frameElement>
+        </div>
     );
   }
 }

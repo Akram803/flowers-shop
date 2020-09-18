@@ -24,8 +24,9 @@ class Register extends Component {
         if(name==='mail' && val ){
 
         }
-        if(name==='phone' && val &&  !Number(val) ){
-            error = 'phone must be numbers'
+        if(name==='phone' && val){
+            error = !Number(val) ? 'phone must be numbers' : error
+            error = val.length > 13 ? 'too long number' : error
         }
 
         this.setState({
@@ -39,6 +40,11 @@ class Register extends Component {
         error = (this.state.phone) ? error : 'enter your phone'
         error = (this.state.mail) ? error : 'enter your mail'
         error = (this.state.username) ? error : 'enter your username'
+
+        let mailPattern = /^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (!mailPattern.test(this.state.mail)){
+            error = 'Please provide a valid email addressw'
+        }
         if( error ){
             this.setState({
                 massage: error ? <div className='alert alert-danger'>{error}</div> : '' 
