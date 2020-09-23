@@ -42,7 +42,9 @@ class Login extends Component {
 
     render() { 
         return ( 
-            <form class='col-md-4 pt-5 text-center' onSubmit={this.submit}>
+            <div class="row justify-content-center">
+                <form class='col-md-4 text-center py-5 shadow rounded loginform' onSubmit={this.submit}>
+                    <h3 class="mb-5">log in</h3>
                     {this.state.massage}
                     <div class="form-group">
                         <label for="exampleInputEmail1">username</label>
@@ -53,7 +55,8 @@ class Login extends Component {
                         <input type='mail' class="form-control" name="mail" aria-describedby="emailHelp" placeholder="someone@ex.com" onChange={this.change}/>
                     </div>
                     <button type='submit' class='btn btn-outline-primary btn-block'>LogIn</button>
-            </form>
+                </form>
+            </div>
          );
     }
 }

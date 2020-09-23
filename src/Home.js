@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import { BrowserRouter, Route, Redirect  } from "react-router-dom";
 //
 import Header from "./components/header";
@@ -23,6 +23,7 @@ if ( !localStorage.getItem('username') ){
     localStorage.setItem('phone', '')
 
     localStorage.setItem('logged', 'no')
+    localStorage.setItem('currentOrder','[]')
 }
 
 
@@ -43,16 +44,19 @@ class Home extends Component {
   render() { 
      
     return ( 
-        <div>
+        <Fragment>
             <BrowserRouter>
+
                 <Header />
-                <div className='container-fluid'>
+                <div className='container-fluid main'>
                     
                     <Route exact path='/login' component={()=>{
                         return localStorage.getItem('logged')==='yes' ? <Redirect to='/'/> : <Login update={this.update} />
                         }} /> 
 
-                    <Route exact path='/register' component={Register} /> 
+                    <Route exact path='/register' component={()=>{
+                        return localStorage.getItem('username') ? <Redirect to='/login'/> : <Register update={this.update}/>
+                        }} /> 
 
                     <Route exact path='/mycart' component={()=> {
                         return localStorage.getItem('logged')==='yes' ? <Cart/> : <Redirect to='/login'/>
@@ -67,7 +71,7 @@ class Home extends Component {
                 </div>
                 <Footer />
             </BrowserRouter>
-        </div>
+        </Fragment>
     );
   }
 }

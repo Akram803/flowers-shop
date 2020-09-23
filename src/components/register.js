@@ -53,39 +53,36 @@ class Register extends Component {
             localStorage.setItem('username', this.state.username)
             localStorage.setItem('mail', this.state.mail)
             localStorage.setItem('phone', this.state.phone)
+            localStorage.setItem('currentOrder','[]')
+
             this.setState({})
+            this.props.update()
              
         }
     }  
 
     render() { 
-        if(localStorage.getItem('username')){
-            return (
-                <div className='text-center'>
-                    <h3>you are registered</h3>
-                    <h4><Link className='' to='/login'>login now</Link></h4>
-                </div>
-                )
-        }else{
             return ( 
-                <form class='col-md-4 pt-5 text-center' onSubmit={this.submit}>
-                    {this.state.massage}
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">username</label>
-                        <input type="text" class="form-control" name="username" placeholder="username" onChange={this.change} />
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">mail</label>
-                        <input type='mail' class="form-control" name="mail" aria-describedby="emailHelp" placeholder="someone@ex.com" onChange={this.change}/>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">phone</label>
-                        <input type='phone' class="form-control" name="phone" aria-describedby="emailHelp" defaultValue='+2' onChange={this.change} />
-                    </div>
-                    <button type='submit' class='btn btn-outline-primary btn-block'>Regiser</button>
-                </form>
+                <div class="row justify-content-center">
+                    <form class='col-md-4 text-center py-5 shadow rounded registerform' onSubmit={this.submit}>
+                        <h3 class="mb-5">register</h3>
+                        {this.state.massage}
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">username</label>
+                            <input type="text" class="form-control" name="username" placeholder="username" onChange={this.change} />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">mail</label>
+                            <input type='mail' class="form-control" name="mail" aria-describedby="emailHelp" placeholder="someone@ex.com" onChange={this.change}/>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">phone</label>
+                            <input type='phone' class="form-control" name="phone" aria-describedby="emailHelp" defaultValue='+2' onChange={this.change} />
+                        </div>
+                        <button type='submit' class='btn btn-outline-primary btn-block'>Regiser</button>
+                    </form>
+                </div>
              );
-        }
         
     }
 }
