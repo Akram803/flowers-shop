@@ -1,26 +1,19 @@
 
 
-body{
-  background-color: #f7ebfa;
-
+.container{
+  /* min-height: 1000px; */
 }
 nav{
-  background-color: #e6ddd1;
-}
-.main{
-  min-height: 700px;
+  /* background-color: #fc85bc; */
 }
 footer{
-  background-color: #e6ddd1;
+  /* height: 200px; */
+  /* background-image: url('https://www.floradoor.com/wp-content/themes/flora/images/footerbg.jpg'); */
+  /* background-color: #fc85bc; */
 }
 .prise{
   margin: auto;
 }
-
-.card{
-  background-color: #fff1fa;
-}
-.loginform, .registerform{
-  background-color: #f1e7fa;
-
+#n{
+  width: 70px;
 }
