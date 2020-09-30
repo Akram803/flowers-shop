@@ -11,10 +11,13 @@ import About from "./components/about-us";
 import ContactUs from "./components/contact-us";
 import Cart from "./components/cart";
 //
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 //
 import './Home.css'
+
+// import 'jquery/dist/jquery.js'
+// import $ from 'jquery';
 
 if ( !localStorage.getItem('username') ){
     
@@ -23,11 +26,13 @@ if ( !localStorage.getItem('username') ){
     localStorage.setItem('phone', '')
 
     localStorage.setItem('logged', 'no')
-    localStorage.setItem('currentOrder','[]')
+    localStorage.setItem('currentOrderPrice','[]')   // list
+    localStorage.setItem('currentOrder','[]')   // list
+    localStorage.setItem('previuseOrder','[]')  // list of lists
 }
 
 
-
+// $()
 
 class Home extends Component {
   constructor(props) {

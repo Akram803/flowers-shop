@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 class Cart extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+            currentOrder: JSON.parse(localStorage.getItem('currentOrder'))
+        }
     }
     componentDidMount(){
 
@@ -12,8 +14,13 @@ class Cart extends Component {
 
         // [{{}, n},{{}, n}, {{}, n}]
     }
+    buy = ()=>{
+        localStorage.setItem('currentOrder','[]')
+        this.setState({
+            currentOrder: []
+        })
+    }
     render() { 
-        let currentOrder = JSON.parse(localStorage.getItem('currentOrder'))
         return ( 
             <div class='container'>
             <h2>current order</h2>
@@ -27,7 +34,7 @@ class Cart extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                {currentOrder.map( (ord)=> (
+                {this.state.currentOrder.map( (ord)=> (
                         <tr onClick={0}>
                             <td>{ord.product.name}</td>
                             <td>{ord.product.price}</td>
@@ -39,7 +46,8 @@ class Cart extends Component {
                 )}
                 </tbody>
             </table>
-            <button type="button" class="btn btn-primary btn-block">BUY NOW</button>
+            <h3>Total Price: {'00,0'} EGP</h3>
+            <button type="button" class="btn btn-primary btn-block" onClick={this.buy}>BUY NOW</button>
             </div>
          );
     }

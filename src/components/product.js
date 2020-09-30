@@ -28,9 +28,9 @@ class Product extends Component {
         e.preventDefault()
         let isExist = false
         let currentOrder = JSON.parse(localStorage.getItem('currentOrder'))
-        currentOrder.forEach(ord => {
-            if(ord.product.id===this.state.product.id){
-                ord.n = this.state.number
+        currentOrder.forEach(prod => {
+            if(prod.product.id===this.state.product.id){
+                prod.n = this.state.number
                 isExist = true
             }
         });

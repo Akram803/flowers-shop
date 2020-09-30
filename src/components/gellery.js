@@ -72,21 +72,4 @@ export default Gellary;
 
 
 
-{/* <div class='col'>
-                        <div class="card mb-3 w-100" >
-                            <div class="row no-gutters">
-                                <div class="col-sm-6">
-                                    <img src={'/images/flowers/'+p.img} class="card-img w-100" alt="..." />
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="card-body">
-                                        <h5 class="card-title"> {p.name} </h5>
-                                        <p class="card-text">
-                                            {p.description.substr(0,150)+'. . . . .'}
-                                            <Link to={'/product/'+p.id}>read more</Link>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>        */}
+
