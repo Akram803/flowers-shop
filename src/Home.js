@@ -5,11 +5,13 @@ import Header from "./components/header";
 import Footer from "./components/footer";
 import Login from "./components/login";
 import Register from "./components/register";
-import Product from "./components/product";
-import Gellary from "./components/gellery";
+
+import Product from "./components/gellery/product";
+import Gellary from "./components/gellery/gellery";
+import Cart from "./components/gellery/cart";
+
 import About from "./components/about-us";
 import ContactUs from "./components/contact-us";
-import Cart from "./components/cart";
 //
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.min.js";
@@ -32,7 +34,6 @@ if ( !localStorage.getItem('username') ){
 }
 
 
-// $()
 
 class Home extends Component {
   constructor(props) {
@@ -55,15 +56,28 @@ class Home extends Component {
                 <Header />
                 <div className='container-fluid main'>
                     
-                    <Route exact path='/login' component={()=>{
-                        return localStorage.getItem('logged')==='yes' ? <Redirect to='/'/> : <Login update={this.update} />
-                        }} /> 
+                    <Route 
+                        exact 
+                        path='/login' 
+                        component={()=>{
+                            return localStorage.getItem('logged')==='yes' ?
+                                <Redirect to='/'/> : <Login update={this.update} />
+                        }} 
+                    /> 
 
-                    <Route exact path='/register' component={()=>{
-                        return localStorage.getItem('username') ? <Redirect to='/login'/> : <Register update={this.update}/>
-                        }} /> 
+                    <Route 
+                        exact 
+                        path='/register' 
+                        component={()=>{
+                            return localStorage.getItem('username') ? 
+                                <Redirect to='/login'/> : <Register update={this.update}/>
+                        }} 
+                    /> 
 
-                    <Route exact path='/mycart' component={()=> {
+                    <Route 
+                    exact 
+                    path='/mycart' 
+                    component={()=> {
                         return localStorage.getItem('logged')==='yes' ? <Cart/> : <Redirect to='/login'/>
                     } } /> 
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //
-import data from './../data.json'
+import data from '../../data.json'
 class Product extends Component {
     constructor(props) {
         super(props);

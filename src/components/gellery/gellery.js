@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 //
-import data from './../data.json'
+import data from '../../data.json'
 class Gellary extends Component {
     constructor(props) {
         super(props);
@@ -34,29 +34,36 @@ class Gellary extends Component {
             ))
         return cols
     }
-    makeGrid = (products, rowWidth) => {
-        let colsCount = products.length
-        let rowsCount = Math.ceil( colsCount / rowWidth )
-        let cols = this.getCols(products)  // array
-        let rows = new Array(rowWidth)  // [empty, empty]
+    // makeGrid = (products, rowWidth) => {
+    //     let colsCount = products.length
+    //     let rowsCount = Math.ceil( colsCount / rowWidth )
+    //     let cols = this.getCols(products)  // array
+    //     let rows = new Array(rowWidth)  // [empty, empty]
         
-        for(let i=0; i<rowsCount; i++){
-            rows[i] = <div class='row '>
-                        {cols[i*rowWidth]}
-                        {cols[i*rowWidth+1]}
-                    </div>
-        }
-        return rows
-    } 
+    //     for(let i=0; i<rowsCount; i++){
+    //         rows[i] = <div class='row '>
+    //                     {cols[i*rowWidth]}
+    //                     {cols[i*rowWidth+1]}
+    //                 </div>
+    //     }
+    //     return rows
+    // } 
 
     render() { 
-        let grid = this.makeGrid(data.products, 2) //[row, row, row]
-        console.log(grid)
+        // let grid = this.makeGrid(data.products, 2) //[row, row]
+        // console.log(grid)
+        // return ( 
+        //     <div className='px-lg-5'>
+        //     <React.Fragment>
+        //         {grid}
+        //     </React.Fragment>
+        //     </div>                
+        //  );
         return ( 
             <div className='px-lg-5'>
-            <React.Fragment>
-                {grid}
-            </React.Fragment>
+                <div class='row '>
+                    {this.getCols(data.products)}
+                </div>
             </div>                
          );
     }

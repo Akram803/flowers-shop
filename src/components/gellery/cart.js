@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+
 class Cart extends Component {
     constructor(props) {
         super(props);
@@ -7,13 +7,7 @@ class Cart extends Component {
             currentOrder: JSON.parse(localStorage.getItem('currentOrder'))
         }
     }
-    componentDidMount(){
 
-    }
-    getcurrentOrder(){
-
-        // [{{}, n},{{}, n}, {{}, n}]
-    }
     buy = ()=>{
         localStorage.setItem('currentOrder','[]')
         this.setState({
