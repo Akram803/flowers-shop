@@ -11,6 +11,10 @@ class Cart extends Component {
     }
 
     componentDidMount = ()=>{
+        this.calcTotalPrice()
+    }
+
+    calcTotalPrice = ()=>{
         let totalPrice = 0
         this.state.currentOrder.forEach( ord => {
             totalPrice += ord.n * ord.product.price
