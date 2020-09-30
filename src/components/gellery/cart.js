@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
 
 class Cart extends Component {
+    state = {}
     constructor(props) {
         super(props);
-        this.state = {
-            currentOrder: JSON.parse(localStorage.getItem('currentOrder'))
+        this.state = { 
+            currentOrder: JSON.parse(localStorage.getItem('currentOrder')), // list of obj
+            totalPrice: 0
         }
+    }
+
+    componentDidMount = ()=>{
+        let totalPrice = 0
+        this.state.currentOrder.forEach( ord => {
+            totalPrice += ord.n * ord.product.price
+        });
+        this.setState({totalPrice: totalPrice})
     }
 
     buy = ()=>{
         localStorage.setItem('currentOrder','[]')
         this.setState({
-            currentOrder: []
+            currentOrder: [],
+            totalPrice: 0
         })
     }
     render() { 
@@ -40,7 +51,7 @@ class Cart extends Component {
                 )}
                 </tbody>
             </table>
-            <h3>Total Price: {'00,0'} EGP</h3>
+            <h3>Total Price: {this.state.totalPrice} EGP</h3>
             <button type="button" class="btn btn-primary btn-block" onClick={this.buy}>BUY NOW</button>
             </div>
          );

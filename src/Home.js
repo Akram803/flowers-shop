@@ -10,7 +10,7 @@ import Product from "./components/gellery/product";
 import Gellary from "./components/gellery/gellery";
 import Cart from "./components/gellery/cart";
 
-import About from "./components/about-us";
+import About from "./components/about-us"; 
 import ContactUs from "./components/contact-us";
 //
 import "bootstrap/dist/css/bootstrap.css";
